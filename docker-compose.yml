@@ -18,7 +18,7 @@ services:
     container_name: web-flux-server
     build:
       context: ./
-    image: web-flux-server
+    image: nhathd/web-flux-server
     depends_on:
       - db
     ports:

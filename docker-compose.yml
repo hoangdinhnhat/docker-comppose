@@ -18,7 +18,7 @@ services:
     container_name: web-flux-server
     build:
       context: ./
-    image: nhathd/web-flux-server
+    image: web-flux-server
     depends_on:
       - db
     ports:
@@ -32,6 +32,26 @@ services:
       DB_NAME: postgres
     links:
       - db
+    networks:
+      - myNetwork
+  fe:
+    container_name: vue-edition
+    build:
+      context: ./
+      target: production
+    image: nhathd/vue-edition
+    depends_on:
+      - api
+    ports:
+      - 5173:5173
+    environment:
+      NODE_ENV: production
+      VITE_BASE_URL: http://localhost:8082/api
+    links:
+      - api
+    volumes:
+      - ./:/src
+      - /src/node_modules
     networks:
       - myNetwork
 volumes:

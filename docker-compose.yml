@@ -40,7 +40,7 @@ services:
     build:
       context: ./
       target: production
-    image: nhathd/bme_fe
+    image: nhathd/bms_fe
     depends_on:
       - be
     ports:

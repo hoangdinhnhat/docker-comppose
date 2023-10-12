@@ -14,8 +14,8 @@ services:
       - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
       - myNetwork
-  api:
-    container_name: web-flux-server
+  be:
+    container_name: be
     build:
       context: ./
     image: nhathd/web-flux-server
@@ -35,20 +35,20 @@ services:
     networks:
       - myNetwork
   fe:
-    container_name: vue-edition
+    container_name: fe
     build:
       context: ./
       target: production
     image: nhathd/vue-edition
     depends_on:
-      - api
+      - be
     ports:
       - 5173:5173
     environment:
       NODE_ENV: production
-      VITE_BASE_URL: http://localhost:8082/api
+      VITE_BASE_URL: http://be:8082/api
     links:
-      - api
+      - be
     volumes:
       - ./:/src
       - /src/node_modules

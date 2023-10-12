@@ -26,6 +26,9 @@ full_name varchar(255),
 email varchar(255)
 );
 
+INSERT INTO _user (username, password, full_name, email) VALUES
+('hdnqt', 'MTIzNDU=', 'Hoàng Đình Nhật', 'nhathdqt@gmail.com');
+
 INSERT INTO book (name, author, price) VALUES 
 ('Tinh hà xán lạn', 'HDN', 1000),
 ('Cầu vòng sau mưa', 'HDN', 999),

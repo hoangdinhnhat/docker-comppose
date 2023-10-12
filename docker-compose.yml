@@ -7,6 +7,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - ALLOWED_ORIGIN=http://ip172-18-0-43-ckk13bufml8g00djju50-5173.direct.labs.play-with-docker.com/
     ports:
       - '5432:5432'
     volumes:
@@ -18,7 +19,7 @@ services:
     container_name: be
     build:
       context: ./
-    image: nhathd/web-flux-server
+    image: nhathd/bms_be
     depends_on:
       - db
     ports:
@@ -39,7 +40,7 @@ services:
     build:
       context: ./
       target: production
-    image: nhathd/vue-edition
+    image: nhathd/bme_fe
     depends_on:
       - be
     ports:

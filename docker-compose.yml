@@ -46,7 +46,7 @@ services:
       - 5173:5173
     environment:
       NODE_ENV: production
-      VITE_BASE_URL: http://:8082/api
+      VITE_BASE_URL: http://ip172-18-0-43-ckk13bufml8g00djju50-5173.direct.labs.play-with-docker.com/api
     links:
       - be
     volumes:

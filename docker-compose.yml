@@ -24,7 +24,7 @@ services:
     ports:
       - 8082:8082
     environment:
-      ALLOWED_ORIGIN: http://ip172-18-0-37-ckkaioggftqg008nk5sg-5173.direct.labs.play-with-docker.com/
+      ALLOWED_ORIGIN: http://ip172-18-0-15-ckkaioggftqg008nk5sg-5173.direct.labs.play-with-docker.com/
       MQ_HOST: r2dbc:postgresql://db:5432/postgres
       DB_HOST: db
       DB_PORT: 5432
@@ -47,7 +47,7 @@ services:
       - 5173:5173
     environment:
       NODE_ENV: production
-      VITE_BASE_URL: http://ip172-18-0-37-ckkaioggftqg008nk5sg-8082.direct.labs.play-with-docker.com/api
+      VITE_BASE_URL: http://ip172-18-0-15-ckkaioggftqg008nk5sg-8082.direct.labs.play-with-docker.com/api
     links:
       - be
     volumes:

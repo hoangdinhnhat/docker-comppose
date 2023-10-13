@@ -7,7 +7,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - ALLOWED_ORIGIN=http://ip172-18-0-21-ckk9epogftqg008nk3j0-5173.direct.labs.play-with-docker.com/
     ports:
       - '5432:5432'
     volumes:
@@ -25,6 +24,7 @@ services:
     ports:
       - 8082:8082
     environment:
+      ALLOWED_ORIGIN: http://ip172-18-0-21-ckk9epogftqg008nk3j0-5173.direct.labs.play-with-docker.com/
       MQ_HOST: r2dbc:postgresql://db:5432/postgres
       DB_HOST: db
       DB_PORT: 5432
